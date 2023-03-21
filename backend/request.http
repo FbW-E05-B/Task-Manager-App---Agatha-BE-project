@@ -1,0 +1,42 @@
+
+###Register new customer
+POST http://localhost:6070/api/user/register
+Content-Type: application/json
+
+{
+    "username":"joh",
+    "email":"joh@yahoo.com",
+    "password":"1234abcd"
+   
+}
+
+###user login
+POST http://localhost:6070/api/user/login
+Content-Type: application/json
+
+{
+    "username":"joy",
+    "email":"joy@yahoo.com",
+    "password":"1234abcd"
+   
+}
+
+###create task
+POST http://localhost:6070/api/task/createTask
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQxMDAwMCwiZXhwIjoxNjc5NDEwNjAwfQ.5Hc5ssTcBRSktasculniT1Hjilv5RwIZvAimSH3cGuw
+
+{
+    "title":"yoga",
+    "description":"new pause",
+    "dueDate":"21-03-2023"  
+}
+
+###Get all tasks
+GET http://localhost:6070/api/task/allTasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQxMDAwMCwiZXhwIjoxNjc5NDEwNjAwfQ.5Hc5ssTcBRSktasculniT1Hjilv5RwIZvAimSH3cGuw
+
+###Delete a certain task
+DELETE http://localhost:6070/api/task/delete/6419c14ea3c9d49f8fb10589
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQxMDU5NiwiZXhwIjoxNjc5NDExMTk2fQ.0gO8A31h9Bh4fPLUcJMKRAkG-TsE5djEEomwbSumS2k
+

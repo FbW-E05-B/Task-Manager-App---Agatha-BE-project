@@ -1,0 +1,26 @@
+.tasks {
+  .dashboard {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-right: 3px solid black;
+
+    span {
+      font-weight: bolder;
+    }
+  }
+
+  .tasks-form {
+    padding: 2rem;
+
+    .input-container {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.task-list {
+  padding-left: 2rem;
+}

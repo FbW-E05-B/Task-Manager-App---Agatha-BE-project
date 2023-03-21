@@ -1,0 +1,33 @@
+.Login {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    text-align: center;
+  }
+
+  .row {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .home-bg {
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+
+    .form {
+      padding: 0 2rem;
+
+      .input-container,
+      .btn {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
