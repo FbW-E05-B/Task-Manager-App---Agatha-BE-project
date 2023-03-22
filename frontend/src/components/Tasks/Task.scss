@@ -10,6 +10,10 @@
     span {
       font-weight: bolder;
     }
+
+    .btn {
+      border: none;
+    }
   }
 
   .tasks-form {
@@ -22,5 +26,20 @@
 }
 
 .task-list {
-  padding-left: 2rem;
+  padding: 2rem;
+
+  span {
+    font-weight: bolder;
+  }
+
+  .btn {
+    margin-right: 0.5rem;
+    width: 100px;
+  }
+
+  .task-input {
+    color: red;
+    font-weight: bolder;
+    text-decoration: underline;
+  }
 }

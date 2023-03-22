@@ -26,7 +26,7 @@ TaskRouter.post("/createTask", async (req, res, next) => {
   //^ get all tasks
   .get("/allTasks", async (req, res, next) => {
     try {
-      const tasks = TaskModel.find({});
+      const tasks = TaskModel.find({ author: req.userId });
       //^ get the content instead of an id, exec means execute
       tasks.populate("author", "username -_id");
       const allTasks = await tasks.exec();
@@ -49,6 +49,26 @@ TaskRouter.post("/createTask", async (req, res, next) => {
       author.save();
       console.log(deleteTask);
       res.send({ success: true });
+    } catch (error) {
+      next(createError(500, error.message));
+    }
+  })
+  //^ Edit
+  .put("/edit/:id", async (req, res, next) => {
+    try {
+      const editTask = await TaskModel.findByIdAndUpdate(
+        {
+          _id: req.params.id,
+        },
+        req.body,
+        { new: true }
+      );
+
+      if (editTask) {
+        return res.status(200).send({ updatedTask: editTask });
+      }
+      console.log(editTask);
+      next({ status: 404, message: "product not found" });
     } catch (error) {
       next(createError(500, error.message));
     }

@@ -11,6 +11,7 @@ import {
   Container,
   Row,
 } from "react-bootstrap";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Task() {
   const {
@@ -23,6 +24,8 @@ function Task() {
     setErrors,
     deleteTask,
     setDeleteTask,
+    show,
+    setShow,
   } = useContext(Context);
   console.log("user:", user);
   const titleInput = useRef();
@@ -98,7 +101,7 @@ function Task() {
     alert("Your task is saved");
   };
 
-  //^ delete message
+  //^ delete task
   const deleteTaskHandler = (id) => {
     console.log(id);
 
@@ -123,6 +126,18 @@ function Task() {
       });
   };
 
+  //^ Hide function
+  const hideHandler = (e) => {
+    e.preventDefault();
+    setShow(false);
+  };
+
+  //^ Show function
+  const showHandler = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
+
   //^ User logout handler
   const logoutHandler = () => {
     localStorage.removeItem("token");
@@ -130,6 +145,7 @@ function Task() {
     setToken(null);
     setUser(null);
   };
+
   return (
     <div>
       <Row className="tasks">
@@ -137,7 +153,12 @@ function Task() {
           <p>
             Logged in as <span>{user.username}</span>
           </p>
-          <p>My tasks</p>
+          <Button onClick={showHandler} variant="outline-dark">
+            Show tasks
+          </Button>{" "}
+          <Button onClick={hideHandler} variant="outline-dark">
+            Hide tasks
+          </Button>
           <Button variant="outline-danger" onClick={logoutHandler}>
             Logout
           </Button>
@@ -194,26 +215,46 @@ function Task() {
       </Row>
       <hr />
       <Row className="task-list">
-        <ul>
-          {tasks &&
-            tasks.map((task) => (
-              <li key={task._id}>
-                <p>Title : {task.title}</p>
-                <p>Description: {task.description} </p>
-                <p>Completed: {task.completed} </p>
-                <p>Due Date: {task.dueDate} </p>
-                <p>Posted on: {task.updateAt} </p>
-                <Button
-                  onClick={() => deleteTaskHandler(task._id)}
-                  variant="outline-success"
-                >
-                  Delete
-                </Button>
-                <Button variant="outline-success">Edit</Button>
-                <hr />
-              </li>
-            ))}
-        </ul>
+        <ListGroup>
+          <ListGroup.Item variant="secondary">
+            {show &&
+              tasks &&
+              tasks.map((task) => (
+                <div key={task._id}>
+                  <p>
+                    <span>Title </span>:{" "}
+                    <span className="task-input">{task.title}</span>
+                  </p>
+                  <p>
+                    <span>Description</span>:{" "}
+                    <span className="task-input">{task.description}</span>{" "}
+                  </p>
+                  <p>
+                    <span>Completed</span>:{" "}
+                    <span className="task-input">{task.completed}</span>{" "}
+                  </p>
+                  <p>
+                    <span>Due Date</span>:{" "}
+                    <span className="task-input">{task.dueDate}</span>{" "}
+                  </p>
+                  <p>
+                    <span>Posted on</span>:{" "}
+                    <span className="task-input">{task.updateAt}</span>{" "}
+                  </p>
+                  <Button
+                    onClick={() => deleteTaskHandler(task._id)}
+                    variant="outline-dark"
+                  >
+                    Delete
+                  </Button>
+                  <NavLink to="/edit">
+                    <Button variant="outline-dark">Edit</Button>
+                  </NavLink>
+                  <hr />
+                </div>
+              ))}
+          </ListGroup.Item>
+        </ListGroup>
       </Row>
     </div>
   );

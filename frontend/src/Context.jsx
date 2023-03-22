@@ -10,6 +10,7 @@ function ContextProvider({ children }) {
   const [tasks, setTasks] = useState(null);
   const [token, setToken] = useState(defaultToken);
   const [deleteTask, setDeleteTask] = useState(false);
+  const [show, setShow] = useState(true);
 
   return (
     <Context.Provider
@@ -24,6 +25,8 @@ function ContextProvider({ children }) {
         setToken,
         deleteTask,
         setDeleteTask,
+        show,
+        setShow,
       }}
     >
       {children}
