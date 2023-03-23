@@ -4,6 +4,7 @@ import { hash, compare } from "bcrypt";
 import createError from "http-errors";
 import jwt from "jsonwebtoken";
 
+//^ define user router
 const UserRouter = express.Router();
 
 //^ new user register
@@ -11,7 +12,7 @@ UserRouter.post("/register", async (req, res, next) => {
   try {
     //^ hashing password
     const hashed = await hash(req.body.password, 10);
-    //^ reassigning
+    //^ reassigning the password to hashed password
     req.body.password = hashed;
     const newUser = await UserModel.create(req.body);
     res.send(newUser);
@@ -19,7 +20,6 @@ UserRouter.post("/register", async (req, res, next) => {
     next(createError(401, error.message));
   }
 })
-
   //^ Customer login
   .post("/login", async (req, res, next) => {
     try {
@@ -37,7 +37,7 @@ UserRouter.post("/register", async (req, res, next) => {
       }
       //^ Token
       //^ token expiring time, if it expires, log in again
-      const option = { expiresIn: "10min" };
+      const option = { expiresIn: "60min" };
       const token = jwt.sign({ id: user._id }, process.env.SECRET, option);
       //^ send user and token to front end
       res.send({ user, token });

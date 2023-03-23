@@ -3,12 +3,13 @@ import jwt from "jsonwebtoken";
 
 export const CheckToken = (req, res, next) => {
   try {
-    const rawToken = req.headers.authorization;
-    if (!rawToken) {
+    const AuthToken = req.headers.authorization;
+    if (!AuthToken) {
       next(createError(401, "Access denied"));
       return;
     }
-    const token = rawToken.split(" ")[1];
+    const token = AuthToken.split(" ")[1];
+    console.log(token);
     if (!token) {
       next(createError(401, "Access denied"));
       return;
@@ -20,6 +21,7 @@ export const CheckToken = (req, res, next) => {
         return;
       }
       req.userId = payload.id;
+      console.log(req.userId);
       next();
     });
   } catch (error) {

@@ -35,6 +35,18 @@ TaskRouter.post("/createTask", async (req, res, next) => {
       next(createError(500, error.message));
     }
   })
+  //^ get one task
+  .get("/:id", async (req, res, next) => {
+    try {
+      const task = TaskModel.findById(req.params.id);
+      //^ get the content instead of an id, exec means execute
+      task.populate("author", "username -_id");
+      const OneTask = await task.exec();
+      res.send(OneTask);
+    } catch (error) {
+      next(createError(500, error.message));
+    }
+  })
   //^ delete a task
   .delete("/delete/:id", async (req, res, next) => {
     try {
@@ -53,7 +65,7 @@ TaskRouter.post("/createTask", async (req, res, next) => {
       next(createError(500, error.message));
     }
   })
-  //^ Edit
+  //^ edit a task
   .put("/edit/:id", async (req, res, next) => {
     try {
       const editTask = await TaskModel.findByIdAndUpdate(
@@ -63,7 +75,6 @@ TaskRouter.post("/createTask", async (req, res, next) => {
         req.body,
         { new: true }
       );
-
       if (editTask) {
         return res.status(200).send({ updatedTask: editTask });
       }

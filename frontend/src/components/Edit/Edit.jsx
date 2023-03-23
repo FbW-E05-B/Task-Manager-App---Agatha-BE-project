@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext, useEffect, useRef } from "react";
 import { Context } from "../../Context";
+import "./Edit.scss";
 import Task from "../Tasks/Task";
 import {
   Form,
@@ -103,52 +104,61 @@ function Edit() {
 
   return (
     <div className="Edit">
-      <Form onSubmit={editTaskHandler} className="the-form">
-        <ListGroup className="input-container">
-          <ListGroup.Item variant="info">
-            <FormControl
-              type="text"
-              ref={titleInput}
-              placeholder="task title"
-              defaultValue={EditingTask.title}
-            />
-          </ListGroup.Item>
-        </ListGroup>
-        <ListGroup className="input-container">
-          <ListGroup.Item variant="warning">
-            <FormControl
-              type="text"
-              ref={descriptionInput}
-              placeholder="description"
-              defaultValue={EditingTask.description}
-            />
-          </ListGroup.Item>
-        </ListGroup>
-        <ListGroup className="input-container">
-          <ListGroup.Item variant="info">
-            <FormControl
-              type="boolean"
-              ref={completedInput}
-              placeholder="completed task"
-              defaultValue={EditingTask.completed}
-            />
-          </ListGroup.Item>
-        </ListGroup>
-        <ListGroup className="input-container">
-          <ListGroup.Item variant="warning">
-            <FormControl
-              type="date"
-              ref={dueDateInput}
-              placeholder="due date"
-              defaultValue={EditingTask.dueDate}
-            />
-          </ListGroup.Item>
-        </ListGroup>
-        <br />
-        <Button onClick={updateHandler} variant="outline-dark" type="submit">
-          Update
-        </Button>
-      </Form>
+      <Container>
+        <Row className="edit-form">
+          <h3>Edit your details here</h3>
+          <Form onSubmit={editTaskHandler} className="the-form">
+            <ListGroup className="input-container">
+              <ListGroup.Item variant="info">
+                <FormControl
+                  type="text"
+                  ref={titleInput}
+                  placeholder="task title"
+                  defaultValue={EditingTask.title}
+                />
+              </ListGroup.Item>
+            </ListGroup>
+            <ListGroup className="input-container">
+              <ListGroup.Item variant="warning">
+                <FormControl
+                  type="text"
+                  ref={descriptionInput}
+                  placeholder="description"
+                  defaultValue={EditingTask.description}
+                />
+              </ListGroup.Item>
+            </ListGroup>
+            <ListGroup className="input-container">
+              <ListGroup.Item variant="info">
+                <FormControl
+                  type="boolean"
+                  ref={completedInput}
+                  placeholder="completed task"
+                  defaultValue={EditingTask.completed}
+                />
+              </ListGroup.Item>
+            </ListGroup>
+            <ListGroup className="input-container">
+              <ListGroup.Item variant="warning">
+                <FormControl
+                  type="date"
+                  ref={dueDateInput}
+                  placeholder="due date"
+                  defaultValue={EditingTask.dueDate}
+                />
+              </ListGroup.Item>
+            </ListGroup>
+            <br />
+            <Button
+              onClick={updateHandler}
+              variant="outline-dark"
+              type="submit"
+            >
+              Update
+            </Button>
+          </Form>
+        </Row>
+      </Container>
     </div>
   );
 }

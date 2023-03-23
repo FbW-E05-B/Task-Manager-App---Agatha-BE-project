@@ -24,30 +24,32 @@ Content-Type: application/json
 ###create task
 POST http://localhost:6070/api/task/createTask
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQxMDAwMCwiZXhwIjoxNjc5NDEwNjAwfQ.5Hc5ssTcBRSktasculniT1Hjilv5RwIZvAimSH3cGuw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQ5NDc5MCwiZXhwIjoxNjc5NDk1MzkwfQ.8W4vXSlO7YaNZlvhZd7Myq1r45iLX0FzO6vydV7rhX4
 
 {
-    "title":"yoga",
-    "description":"new pause",
+    "title":"music",
+    "description":"new music",
+    "completed":"false",
     "dueDate":"21-03-2023"  
 }
 
 ###Get all tasks
 GET http://localhost:6070/api/task/allTasks
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQ4NjI2MSwiZXhwIjoxNjc5NDg2ODYxfQ.nJhi2T_VUM4x9ye0BSumHo3-gwpok7PtaItPOs0iWoE
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTUyNDA5MCwiZXhwIjoxNjc5NTI0NjkwfQ.hqjTJLaN0yAPW7PkGJssdPCCw3zx3_Lc-gD1CxAtw5M
 
 ###Delete a certain task
 DELETE http://localhost:6070/api/task/delete/6419c14ea3c9d49f8fb10589
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQxMDU5NiwiZXhwIjoxNjc5NDExMTk2fQ.0gO8A31h9Bh4fPLUcJMKRAkG-TsE5djEEomwbSumS2k
 
 ###Edit a certain task
-PUT http://localhost:6070/api/task/edit/6419c3c4a9fa55835144b43d
+PUT http://localhost:6070/api/task/edit/6419c366d43dd9880e821666
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQ4NjI2MSwiZXhwIjoxNjc5NDg2ODYxfQ.nJhi2T_VUM4x9ye0BSumHo3-gwpok7PtaItPOs0iWoE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTUyNDA5MCwiZXhwIjoxNjc5NTI0NjkwfQ.hqjTJLaN0yAPW7PkGJssdPCCw3zx3_Lc-gD1CxAtw5M
 
 {
-    "title":"read",
-    "description":"new novel",
+    "title":"movie",
+    "description":"new movie",
+    "completed":"true",
     "dueDate":"25-03-2023"  
 }
 
