@@ -20,10 +20,10 @@ UserRouter.post("/register", async (req, res, next) => {
     next(createError(401, error.message));
   }
 })
-  //^ Customer login
+  //^ user login
   .post("/login", async (req, res, next) => {
     try {
-      //^ Check if customer email exists
+      //^ Check if user's email exists
       const user = await UserModel.findOne({ email: req.body.email });
       if (!user) {
         next(createError(401, "Wrong address"));

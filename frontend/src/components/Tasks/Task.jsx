@@ -239,7 +239,7 @@ function Task() {
                   </p>
                   <p>
                     <span>Posted on</span>:{" "}
-                    <span className="task-input">{task.updateAt}</span>{" "}
+                    <span className="task-input">{task.updatedAt}</span>{" "}
                   </p>
                   <Button
                     onClick={() => deleteTaskHandler(task._id)}

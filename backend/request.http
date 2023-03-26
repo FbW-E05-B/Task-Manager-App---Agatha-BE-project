@@ -1,55 +1,57 @@
 
-###Register new customer
+###Register new user
 POST http://localhost:6070/api/user/register
 Content-Type: application/json
 
 {
-    "username":"joh",
-    "email":"joh@yahoo.com",
-    "password":"1234abcd"
-   
+"username":"joh",
+"email":"joh@yahoo.com",
+"password":"1234abcd"
 }
 
-###user login
+###User login
 POST http://localhost:6070/api/user/login
 Content-Type: application/json
 
 {
-    "username":"joy",
-    "email":"joy@yahoo.com",
-    "password":"1234abcd"
-   
+"username":"joh",
+"email":"joh@yahoo.com",
+"password":"1234abcd"
 }
 
-###create task
+###Create task
 POST http://localhost:6070/api/task/createTask
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQ5NDc5MCwiZXhwIjoxNjc5NDk1MzkwfQ.8W4vXSlO7YaNZlvhZd7Myq1r45iLX0FzO6vydV7rhX4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWM3YjEyNjk2MDdlNDJkNTM1ZjQ3NSIsImlhdCI6MTY3OTU4ODEzNCwiZXhwIjoxNjc5NTkxNzM0fQ.ZP6mPPjMJ5CQty01KXMv_reJEHKZleKTPmaif6dUKfs
 
 {
-    "title":"music",
-    "description":"new music",
-    "completed":"false",
-    "dueDate":"21-03-2023"  
-}
+"title":"cook",
+"description":"new recipe",
+"completed":"false",
+"dueDate":"27-03-2023"  
+ }
 
 ###Get all tasks
 GET http://localhost:6070/api/task/allTasks
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTUyNDA5MCwiZXhwIjoxNjc5NTI0NjkwfQ.hqjTJLaN0yAPW7PkGJssdPCCw3zx3_Lc-gD1CxAtw5M
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWM3YjEyNjk2MDdlNDJkNTM1ZjQ3NSIsImlhdCI6MTY3OTU4ODEzNCwiZXhwIjoxNjc5NTkxNzM0fQ.ZP6mPPjMJ5CQty01KXMv_reJEHKZleKTPmaif6dUKfs
+
+###Get one task
+GET http://localhost:6070/api/task/641c614515c193a4ff4ddda3
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWM2MGU4MTVjMTkzYTRmZjRkZGQ5YyIsImlhdCI6MTY3OTU4MTQzMSwiZXhwIjoxNjc5NTg1MDMxfQ.dsrOZm-jvpO-Ywj-KXJJodP6abCmUGn_1vpFRWQL6P4
 
 ###Delete a certain task
-DELETE http://localhost:6070/api/task/delete/6419c14ea3c9d49f8fb10589
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTQxMDU5NiwiZXhwIjoxNjc5NDExMTk2fQ.0gO8A31h9Bh4fPLUcJMKRAkG-TsE5djEEomwbSumS2k
+DELETE http://localhost:6070/api/task/delete/641c7b4169607e42d535f478
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWM3YjEyNjk2MDdlNDJkNTM1ZjQ3NSIsImlhdCI6MTY3OTU4ODEzNCwiZXhwIjoxNjc5NTkxNzM0fQ.ZP6mPPjMJ5CQty01KXMv_reJEHKZleKTPmaif6dUKfs
 
 ###Edit a certain task
-PUT http://localhost:6070/api/task/edit/6419c366d43dd9880e821666
+PUT http://localhost:6070/api/task/edit/641c611a15c193a4ff4ddd9f
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTljMGVjYTNjOWQ0OWY4ZmIxMDU4MiIsImlhdCI6MTY3OTUyNDA5MCwiZXhwIjoxNjc5NTI0NjkwfQ.hqjTJLaN0yAPW7PkGJssdPCCw3zx3_Lc-gD1CxAtw5M
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWM2MGU4MTVjMTkzYTRmZjRkZGQ5YyIsImlhdCI6MTY3OTU4MTQzMSwiZXhwIjoxNjc5NTg1MDMxfQ.dsrOZm-jvpO-Ywj-KXJJodP6abCmUGn_1vpFRWQL6P4
 
 {
-    "title":"movie",
-    "description":"new movie",
-    "completed":"true",
-    "dueDate":"25-03-2023"  
+"title":"movie",
+"description":"new movie",
+"completed":"true",
+"dueDate":"25-03-2023"  
 }
 
